@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun abrir(){
         val thread= Thread(Runnable{
-            Thread.sleep(1000)
+            Thread.sleep(10000)
             runOnUiThread {
                 val menu = Intent(this, menu::class.java)
                 menu.putExtra("id",-1)
