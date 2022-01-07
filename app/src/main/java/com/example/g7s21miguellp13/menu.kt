@@ -34,10 +34,16 @@ class menu : AppCompatActivity() {
         }
 
 
-        binding.btnEliminar.setOnClickListener {}
+        binding.btnEliminar.setOnClickListener {
+            val add=Intent(this, deleteUser::class.java)
+            add.putExtra("id",id)
+            startActivity(add)
+        }
 
 
-        binding.btnSalir.setOnClickListener {}
+        binding.btnSalir.setOnClickListener {
+            finishAffinity()
+        }
 
 
 

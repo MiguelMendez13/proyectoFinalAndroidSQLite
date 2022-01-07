@@ -11,7 +11,7 @@ class deleteUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityDeleteUserBinding.inflate(layoutInflater)
-        val id = intent.getIntExtra("id",-1)
+        var id = intent.getIntExtra("id",-1)
         setContentView(binding.root)
         binding.idText.isEnabled = false
         binding.nameText.isEnabled = false
@@ -40,6 +40,7 @@ class deleteUser : AppCompatActivity() {
              var result = dbUsers.delDate(id)
              var ressT= "Eliminidado(s) "+result.toString()+" de la tabla"
              Toast.makeText(this,ressT, Toast.LENGTH_LONG).show()
+             id=-1
          }
 
 
