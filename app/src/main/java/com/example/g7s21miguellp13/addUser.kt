@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.g7s21miguellp13.databinding.ActivityAddUserBinding
-import com.example.g7s21miguellp13.AdminSQLiteOpenHelper
+
 
 class addUser : AppCompatActivity() {
    //lateinit var dbUsers: AdminSQLiteOpenHelper
@@ -15,7 +15,7 @@ class addUser : AppCompatActivity() {
         val binding = ActivityAddUserBinding.inflate(layoutInflater)
         val id = intent.getIntExtra("id",-1)
         setContentView(binding.root)
-        var dbUsers: AdminSQLiteOpenHelper = AdminSQLiteOpenHelper(this)
+        val dbUsers = AdminSQLiteOpenHelper(this)
 
         binding.button.setOnClickListener {
             if(binding.ageText.text.isNotBlank() && binding.nameText.text.isNotBlank() && binding.mailText.text.isNotBlank()){
@@ -25,10 +25,10 @@ class addUser : AppCompatActivity() {
                 binding.nameText.text.clear()
                 binding.mailText.text.clear()
 
-                Toast.makeText(this,"Nuevo usuario agregado",Toast.LENGTH_LONG)
+                Toast.makeText(this,"Nuevo usuario agregado",Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(this,"Llena todos los campos",Toast.LENGTH_LONG)
+                Toast.makeText(this,"Llena todos los campos",Toast.LENGTH_LONG).show()
             }
         }
 

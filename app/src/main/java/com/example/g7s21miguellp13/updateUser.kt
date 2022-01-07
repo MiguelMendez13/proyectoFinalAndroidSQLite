@@ -1,5 +1,6 @@
 package com.example.g7s21miguellp13
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,10 +17,10 @@ class updateUser : AppCompatActivity() {
             val date= dates[0].toString().split("   ")
             println(date)
 
-            binding.idText.setText(date[0].toString())
-            binding.nameText.setText(date[1].toString())
-            binding.ageText.setText(date[2].toString())
-            binding.mailText.setText(date[3].toString())
+            binding.idText.setText(date[0])
+            binding.nameText.setText(date[1])
+            binding.ageText.setText(date[2])
+            binding.mailText.setText(date[3])
         }
         else{
             binding.idText.isEnabled = false
@@ -29,11 +30,35 @@ class updateUser : AppCompatActivity() {
             binding.button.isEnabled = false
             Toast.makeText(this,"No haz seleccionado un id valido",Toast.LENGTH_LONG).show()
         }
+        val dbUsers = AdminSQLiteOpenHelper(this)
+        binding.button.setOnClickListener{
+            if(binding.idText.text.isNotBlank() && binding.ageText.text.isNotBlank() && binding.nameText.text.isNotBlank() && binding.mailText.text.isNotBlank()){
 
+                dbUsers.modifyDate(binding.idText.text.toString().toInt(),binding.nameText.text.toString(), binding.ageText.text.toString().toInt(), binding.mailText.text.toString())
+                binding.idText.text.clear()
+                binding.ageText.text.clear()
+                binding.nameText.text.clear()
+                binding.mailText.text.clear()
+
+                Toast.makeText(this,"Usuario actualizado",Toast.LENGTH_LONG).show()
+            }
+            else{
+                Toast.makeText(this,"Llena todos los campos",Toast.LENGTH_LONG).show()
+            }
+        }
+        binding.retu.setOnClickListener{
+            val menu = Intent(this, menu::class.java)
+            menu.putExtra("id",id)
+            startActivity(menu)
+
+        }
 
 
     }
-    fun getDates(id:Int): MutableList<*>{
+
+
+
+    private fun getDates(id:Int): MutableList<*>{
         val dbUsers = AdminSQLiteOpenHelper(this)
         val dbRead=dbUsers.readableDatabase
         val args= arrayOf(id.toString())

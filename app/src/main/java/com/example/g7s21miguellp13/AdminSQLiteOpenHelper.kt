@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteDatabase.CursorFactory
+
 
 
 class AdminSQLiteOpenHelper (context: Context,) : SQLiteOpenHelper(context, "Usuarios.db", null, 1) {
@@ -45,6 +45,7 @@ class AdminSQLiteOpenHelper (context: Context,) : SQLiteOpenHelper(context, "Usu
         val args=arrayOf(id.toString())
 
         val dates= ContentValues()
+        dates.put("id",id)
         dates.put("name",Name)
         dates.put("age",Age)
         dates.put("email",Email)

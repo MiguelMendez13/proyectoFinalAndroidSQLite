@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         abrir()
 
     }
-    fun abrir(){
+    private fun abrir(){
         val thread= Thread(Runnable{
             Thread.sleep(1000)
             runOnUiThread {
