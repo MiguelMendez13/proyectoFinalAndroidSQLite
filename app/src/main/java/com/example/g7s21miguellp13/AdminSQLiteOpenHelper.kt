@@ -31,5 +31,29 @@ class AdminSQLiteOpenHelper (context: Context,) : SQLiteOpenHelper(context, "Usu
         db.close()
 
     }
+    fun delDate(id: Int) : Int{
+        val dates= arrayOf(id.toString())
+
+        val db = this.writableDatabase
+        val deletes=db.delete("users","id = ?",dates)
+        db.close()
+        return deletes
+    }
+
+
+    fun modifyDate(id: Int, Name: String, Age: Int, Email: String){
+        val args=arrayOf(id.toString())
+
+        val dates= ContentValues()
+        dates.put("name",Name)
+        dates.put("age",Age)
+        dates.put("email",Email)
+
+
+        val db = this.writableDatabase
+        db.update("users",dates,"id = ?",args)
+        db.close()
+
+    }
 }
 

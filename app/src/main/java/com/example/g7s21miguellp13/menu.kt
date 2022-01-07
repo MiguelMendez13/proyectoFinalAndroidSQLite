@@ -14,7 +14,10 @@ class menu : AppCompatActivity() {
 
 
 
-        binding.btnListar.setOnClickListener {}
+        binding.btnListar.setOnClickListener {
+            val add=Intent(this, listElements::class.java)
+            startActivity(add)
+        }
 
 
         binding.btnInsertar.setOnClickListener {
