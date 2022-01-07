@@ -1,5 +1,6 @@
 package com.example.g7s21miguellp13
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -7,10 +8,12 @@ import com.example.g7s21miguellp13.databinding.ActivityListElementsBinding
 
 class listElements : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val numberSel=-1
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_elements)
         val binding = ActivityListElementsBinding.inflate(layoutInflater)
+        val id = intent.getIntExtra("id",-1)
         setContentView(binding.root)
 
         val dbUsers = AdminSQLiteOpenHelper(this)
@@ -35,7 +38,7 @@ class listElements : AppCompatActivity() {
         val arrayAdapter:ArrayAdapter<*>
         arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,listDates)
         binding.listView.adapter=arrayAdapter
-        var textTemp="id seleccionado: "+numberSel.toString()
+        val textTemp="id seleccionado: "+id.toString()
         binding.selecText.text=textTemp
 
         binding.listView.setOnItemClickListener(){parent,view,position,id->
@@ -45,6 +48,16 @@ class listElements : AppCompatActivity() {
             var textTemp=numerSel.toString()
             println(numerSel)
             binding.selecText.text="id seleccionado: "+textTemp
+            idGuardar().change(numerSel)
+        }
+
+        binding.retuu.setOnClickListener{
+            val idTextt = binding.selecText.text.toString().replace("id seleccionado: ","")
+            val numId = idTextt.toInt()
+            val menu = Intent(this, menu::class.java)
+            menu.putExtra("id",numId)
+            startActivity(menu)
+
         }
 
 

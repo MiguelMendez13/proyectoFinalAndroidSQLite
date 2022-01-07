@@ -11,17 +11,18 @@ class menu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
+        val id = intent.getIntExtra("id",-1)
 
         binding.btnListar.setOnClickListener {
             val add=Intent(this, listElements::class.java)
+            add.putExtra("id",id)
             startActivity(add)
         }
 
 
         binding.btnInsertar.setOnClickListener {
             val add=Intent(this, addUser::class.java)
+            add.putExtra("id",id)
             startActivity(add)
         }
 

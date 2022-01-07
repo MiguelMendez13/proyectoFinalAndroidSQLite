@@ -7,8 +7,8 @@
     tools:context=".addUser">
 
     <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="357dp"
+        android:layout_width="319dp"
+        android:layout_height="452dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,5 +69,11 @@
             android:layout_height="wrap_content"
             android:text="Agregar"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/retu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regresar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
