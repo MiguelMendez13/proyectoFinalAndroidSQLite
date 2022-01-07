@@ -31,6 +31,5 @@ class AdminSQLiteOpenHelper (context: Context,) : SQLiteOpenHelper(context, "Usu
         db.close()
 
     }
-
 }
 
