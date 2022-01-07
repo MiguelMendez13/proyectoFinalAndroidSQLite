@@ -7,13 +7,29 @@
     tools:context=".updateUser">
 
     <LinearLayout
-        android:layout_width="319dp"
-        android:layout_height="452dp"
+        android:layout_width="332dp"
+        android:layout_height="497dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ID"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/idText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView"
@@ -67,7 +83,7 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agregar"
+            android:text="Guardar"
             android:textSize="24sp" />
 
         <Button

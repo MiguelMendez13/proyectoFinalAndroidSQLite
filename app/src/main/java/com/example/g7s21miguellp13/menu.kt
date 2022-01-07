@@ -27,7 +27,11 @@ class menu : AppCompatActivity() {
         }
 
 
-        binding.btnActualizar.setOnClickListener {}
+        binding.btnActualizar.setOnClickListener {
+            val add=Intent(this, updateUser::class.java)
+            add.putExtra("id",id)
+            startActivity(add)
+        }
 
 
         binding.btnEliminar.setOnClickListener {}
