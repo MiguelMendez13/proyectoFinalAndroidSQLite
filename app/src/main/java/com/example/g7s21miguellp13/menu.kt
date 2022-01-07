@@ -1,5 +1,6 @@
 package com.example.g7s21miguellp13
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.g7s21miguellp13.databinding.ActivityMenuBinding
@@ -16,7 +17,10 @@ class menu : AppCompatActivity() {
         binding.btnListar.setOnClickListener {}
 
 
-        binding.btnInsertar.setOnClickListener {}
+        binding.btnInsertar.setOnClickListener {
+            val add=Intent(this, addUser::class.java)
+            startActivity(add)
+        }
 
 
         binding.btnActualizar.setOnClickListener {}

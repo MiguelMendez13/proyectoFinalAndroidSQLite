@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory
 class AdminSQLiteOpenHelper (context: Context,) : SQLiteOpenHelper(context, "Usuarios.db", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("create table users(id int primary key autoincrement, Name text, Age int, Email text)")
+        db.execSQL("create table users(id INTEGER primary key autoincrement, Name text, Age int, Email text)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
