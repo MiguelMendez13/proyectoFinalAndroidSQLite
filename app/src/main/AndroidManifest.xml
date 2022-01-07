@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.G7s21Miguellp13">
         <activity
+            android:name=".listElements"
+            android:exported="false" />
+        <activity
             android:name=".addUser"
             android:exported="false" />
         <activity
